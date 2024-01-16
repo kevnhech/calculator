@@ -134,11 +134,31 @@ clearBtn.addEventListener('click', () => {
   calcDisplay.textContent = '0';
   firstNum = '3';
   secondNum = '5';
-  operator = '+';
+  operator = '';
 });
 
 addBtn.addEventListener('click', () => {
-  calcDisplay.textContent += '+';
+  let displayValue = calcDisplay.textContent;
+  let arr = displayValue.split('');
+  count = 0;
+
+  arr.forEach(function(item) {
+    if (item == '+') {
+      count++;
+    }
+  });
+
+  if (count > 0) {
+    operator = arr.find(item => item == '+' || item == '-' || item == '*' || item == '/');
+    let arrOfNums = displayValue.split(operator);
+    firstNum = Number(arrOfNums[0]);
+    secondNum = Number(arrOfNums[1]);
+    calcDisplay.textContent = String(operate(operator, firstNum, secondNum)) + '+';
+  } else {
+    calcDisplay.textContent += '+';
+  }
+
+  // calcDisplay.textContent += '+';
 });
 
 subtractBtn.addEventListener('click', () => {
