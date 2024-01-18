@@ -14,6 +14,10 @@ function divide(a, b) {
   return a / b;
 }
 
+function roundNum(num) {
+  return Math.round(num * 100) / 100;
+}
+
 let firstNum = '3';
 let operator = '+';
 let secondNum = '5';
@@ -26,7 +30,7 @@ function operate(op, num1, num2) {
   } else if (op == '*') {
     return multiply(num1, num2);
   } else if (op == '/') {
-    return divide(num1, num2);
+    return roundNum(divide(num1, num2));
   }
 }
 
@@ -143,7 +147,7 @@ addBtn.addEventListener('click', () => {
   count = 0;
 
   arr.forEach(function(item) {
-    if (item == '+') {
+    if (item == '+' || item == '-' || item == '*' || item == '/') {
       count++;
     }
   });
@@ -157,20 +161,72 @@ addBtn.addEventListener('click', () => {
   } else {
     calcDisplay.textContent += '+';
   }
-
-  // calcDisplay.textContent += '+';
 });
 
 subtractBtn.addEventListener('click', () => {
-  calcDisplay.textContent += '-';
+  let displayValue = calcDisplay.textContent;
+  let arr = displayValue.split('');
+  count = 0;
+
+  arr.forEach(function(item) {
+    if (item == '+' || item == '-' || item == '*' || item == '/') {
+      count++;
+    }
+  });
+
+  if (count > 0) {
+    operator = arr.find(item => item == '+' || item == '-' || item == '*' || item == '/');
+    let arrOfNums = displayValue.split(operator);
+    firstNum = Number(arrOfNums[0]);
+    secondNum = Number(arrOfNums[1]);
+    calcDisplay.textContent = String(operate(operator, firstNum, secondNum)) + '-';
+  } else {
+    calcDisplay.textContent += '-';
+  }
 });
 
 multiplyBtn.addEventListener('click', () => {
-  calcDisplay.textContent += '*';
+  let displayValue = calcDisplay.textContent;
+  let arr = displayValue.split('');
+  count = 0;
+
+  arr.forEach(function(item) {
+    if (item == '+' || item == '-' || item == '*' || item == '/') {
+      count++;
+    }
+  });
+
+  if (count > 0) {
+    operator = arr.find(item => item == '+' || item == '-' || item == '*' || item == '/');
+    let arrOfNums = displayValue.split(operator);
+    firstNum = Number(arrOfNums[0]);
+    secondNum = Number(arrOfNums[1]);
+    calcDisplay.textContent = String(operate(operator, firstNum, secondNum)) + '*';
+  } else {
+    calcDisplay.textContent += '*';
+  }
 });
 
 divideBtn.addEventListener('click', () => {
-  calcDisplay.textContent += '/';
+  let displayValue = calcDisplay.textContent;
+  let arr = displayValue.split('');
+  count = 0;
+
+  arr.forEach(function(item) {
+    if (item == '+' || item == '-' || item == '*' || item == '/') {
+      count++;
+    }
+  });
+
+  if (count > 0) {
+    operator = arr.find(item => item == '+' || item == '-' || item == '*' || item == '/');
+    let arrOfNums = displayValue.split(operator);
+    firstNum = Number(arrOfNums[0]);
+    secondNum = Number(arrOfNums[1]);
+    calcDisplay.textContent = String(operate(operator, firstNum, secondNum)) + '/';
+  } else {
+    calcDisplay.textContent += '/';
+  }
 });
 
 equalBtn.addEventListener('click', () => {

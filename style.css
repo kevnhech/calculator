@@ -1,0 +1,27 @@
+* {
+  font-family: math;
+}
+
+button {
+  background-color: #333;
+  color: #ECF0F7;
+  border: none;
+  border-radius: 4px;
+}
+
+#display {
+  font-size: 36px;
+}
+
+#clear-button,
+#add-button,
+#subtract-button,
+#multiply-button,
+#divide-button {
+  background-color: #666;
+}
+
+#equal-button {
+  color: #333333;
+  background-color: #00C0FF;
+}
