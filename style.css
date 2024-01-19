@@ -1,16 +1,22 @@
 * {
-  font-family: math;
+  font-family: sans-serif;
 }
 
-button {
-  background-color: #333;
-  color: #ECF0F7;
-  border: none;
+#calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 250px;
   border-radius: 4px;
+  background-color: #CFCFCF;
+  padding: 16px 8px;
 }
 
 #display {
-  font-size: 36px;
+  font-size: 24px;
+  border: solid 2px #333;
+  border-radius: 8px;
+  padding: 8px;
 }
 
 #clear-button,
@@ -24,4 +30,52 @@ button {
 #equal-button {
   color: #333333;
   background-color: #00C0FF;
+}
+
+.container-center {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+}
+
+.container-column {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.container-row {
+  display: flex;
+  gap: 8px;
+}
+
+.number,
+.clear,
+.add,
+.subtract,
+.multiply,
+.divide,
+.equal {
+  display: flex;
+  flex-grow: 1;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  height: 100%;
+  justify-content: center;
+}
+
+button {
+  background-color: #333;
+  color: #ECF0F7;
+  border: 2px solid #000;
+  border-radius: 4px;
+  font-size: 16px;
+  flex-grow: 1;
+  padding: 8px 4px;
 }

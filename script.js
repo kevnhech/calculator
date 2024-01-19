@@ -1,21 +1,21 @@
+function round(num) {
+  return Math.round(num * 100) / 100;
+}
+
 function add(a, b) {
-  return a + b;
+  return round(a + b);
 }
 
 function subtract(a, b) {
-  return a - b;
+  return round(a - b);
 }
 
 function multiply(a, b) {
-  return a * b;
+  return round(a * b);
 }
 
 function divide(a, b) {
-  return a / b;
-}
-
-function roundNum(num) {
-  return Math.round(num * 100) / 100;
+  return round(a / b);
 }
 
 let firstNum = '3';
@@ -30,7 +30,7 @@ function operate(op, num1, num2) {
   } else if (op == '*') {
     return multiply(num1, num2);
   } else if (op == '/') {
-    return roundNum(divide(num1, num2));
+    return divide(num1, num2);
   }
 }
 
